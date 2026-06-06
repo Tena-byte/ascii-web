@@ -1,21 +1,31 @@
 package handler
 
 import (
-	"net/http"
 	"ascii-web/ascii"
+	"html/template"
+	"net/http"
 )
-func Generate(w http.ResponseWriter, r *http.Request) {
 
-	text := r.FormValue("text")
-	banner := r.FormValue("banner")
+type Ascii struct {
+	Result string
+}
 
-	result := ascii.Generate(text, banner)
+func Home(w http.ResponseWriter, r *http.Request) {
 
-	data := struct {
-		Result string
-	}{
-		Result: result,
+	var tmpl = template.Must(template.ParseFiles("./template/index.html"))
+
+	data := Ascii{}
+
+	if r.Method == http.MethodPost {
+
+		textarea := r.FormValue("text")
+		banner := r.FormValue("banner")
+
+		font := ascii.LaodBanner(banner)
+		data.Result = ascii.Render(textarea, font)
+
 	}
 
 	tmpl.Execute(w, data)
+
 }

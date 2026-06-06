@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style.css">
+    <title>test work</title>
+</head>
+<body>
+    <div class="container">
+            <form action="/" method="POST">
+
+                <textarea name="text" placeholder="Enter text"></textarea>
+                    <select name="banner">
+                        <option value="standard">Standard</option>
+                        <option value="shadow">Shadow</option>
+                        <option value="thinkertoy">Thinkertoy</option>
+                    </select>
+                <button type="submit">Generate</button>
+            </form>
+        </div>
+        <br>
+        <div class="result">
+            <pre> {{.Result}} </pre>
+        </div>
+        
+    </div>
+     
+</body>
+</html>

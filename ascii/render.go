@@ -2,7 +2,7 @@ package ascii
 
 import "strings"
 
-func Render(text string, font map[rune][]string) string {
+func Render(text string, banner map[rune][]string) string {
 
 	result := make([]string, 8)
 
@@ -10,8 +10,9 @@ func Render(text string, font map[rune][]string) string {
 
 		for row := 0; row < 8; row++ {
 
-			result[row] += font[ch][row]
+			result[row] += banner[ch][row]
 		}
 	}
+
 	return strings.Join(result, "\n")
 }

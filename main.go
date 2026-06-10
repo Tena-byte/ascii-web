@@ -8,14 +8,14 @@ import (
 
 func main() {
 
-	// fs := http.FileServer(http.Dir("./static"))
-	// http.Handle("/static/", http.StripPrefix("/static/", fs))
+	fs := http.FileServer(http.Dir("./static"))
+	http.Handle("/static/", http.StripPrefix("/static/", fs))
 
 	http.HandleFunc("/", handler.Home)
 
-	log.Println("Server running on http://localhost:8080")
+	log.Println("server is running on http://localhost:5000")
 
-	if err := http.ListenAndServe(":8080", nil); err != nil {
-		log.Fatal("Faild to start server", err)
+	if err := http.ListenAndServe(":5000", nil); err != nil {
+		log.Fatal("server not running", err)
 	}
 }

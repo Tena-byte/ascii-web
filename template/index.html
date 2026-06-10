@@ -3,27 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="/static/stye.css">
     <title>test work</title>
 </head>
 <body>
     <div class="container">
+
+        <div class="box">
             <form action="/" method="POST">
 
-                <textarea name="text" placeholder="Enter text"></textarea>
+                <textarea name="text" placeholder="Enter text"></textarea> <br>
                     <select name="banner">
                         <option value="standard">Standard</option>
                         <option value="shadow">Shadow</option>
                         <option value="thinkertoy">Thinkertoy</option>
-                    </select>
+                    </select> <br>
                 <button type="submit">Generate</button>
             </form>
+
+            <br>
+
+            <div class="result">
+                <pre> {{.Result}} </pre>
+            </div>
         </div>
-        <br>
-        <div class="result">
-            <pre> {{.Result}} </pre>
-        </div>
-        
+       
     </div>
      
 </body>
